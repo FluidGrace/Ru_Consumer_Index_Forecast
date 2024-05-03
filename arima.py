@@ -35,7 +35,7 @@ models_mse = []
 modelweights = []
 n=1
 #после просмотра автокорреляций можно обойтись прогоном по этим параметрам
-for d_s in [1]:
+for d_s in [0,1]:
     for p_s in [0,1,2]:
         for q_s in [1,2,3]:
             for d in [0,1,2]:
