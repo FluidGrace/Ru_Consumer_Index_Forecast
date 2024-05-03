@@ -60,10 +60,10 @@ plot_acf(train['Index'])
 ![pacf](https://github.com/FluidGrace/Ru_Consumer_Index_Forecast/assets/168632884/480cea20-0317-425e-9a83-92debe1aec27)
 
 Ну и напоследок.
-'''bash
+```bash
 print(adfuller(train['Index'])) 
 print(kpss(train['Index']))
-'''
+```
 
 Нулевую гипотезу ADF отвергаем, а KPSS нет.
 
