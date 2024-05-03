@@ -10,13 +10,8 @@ from sklearn.metrics import mean_squared_error as MSE
 
 #убираем пустые ячейки, убираем тестовую часть
 data=pd.read_csv('month-aggregate.csv')
-brent=pd.read_csv('Brent2.csv')
 data=data.unstack()
 data=data[:data.last_valid_index()]
-if len(brent)>len(data):
-    brent=brent[:len(data)-len(brent)]
-if len(data)>len(brent):
-    data=data[:len(brent)-len(data)]
 data = pd.DataFrame(data.values, columns=['Index'])
 for i in range(1,14):
     data[f'Index_Lag_{i}']=data['Index'].shift(i)
