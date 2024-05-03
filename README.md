@@ -48,5 +48,6 @@ plot_acf(train['Index'])
 ```
 Видим периодичность данных в 12 месяцев невооруженным взглядом.
 ![acf](https://github.com/FluidGrace/Ru_Consumer_Index_Forecast/assets/168632884/507e3f68-b768-46c3-9381-4c54a9fcaa1a)
+
 График же pacf намекает, что при переборе параметров SARIMA значения p от 2 до 5 можно оставить на потом:
 ![pacf](https://github.com/FluidGrace/Ru_Consumer_Index_Forecast/assets/168632884/480cea20-0317-425e-9a83-92debe1aec27)
