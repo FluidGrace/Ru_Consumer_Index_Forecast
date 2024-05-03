@@ -72,11 +72,11 @@ model_low = GradientBoostingRegressor(loss="quantile", alpha=0.025,
 model_high = GradientBoostingRegressor(loss="quantile", alpha=0.975,
                                       **params).fit(X_train, y_train)
 x = list(range(len(y_test)))
-y_pred = model.predict(X_test, label='GradBoostDT Forecast')
+y_pred = model.predict(X_test)
 y_low = model_low.predict(X_test)
 y_high = model_high.predict(X_test)
 pred_plot = plt.plot(x, y_test)
-plt.plot(y_pred, color='red')
+plt.plot(y_pred, color='red', label='GradBoostDT Forecast')
 plt.fill_between(x, y_low, y_high, color='k', alpha=.25)
 plt.legend()
 plt.show()
