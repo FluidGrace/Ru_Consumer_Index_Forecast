@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consumer Index Value Prediction</title>
+</head>
+<body>
+    <p>Нажмите кнопку, чтобы скачать актуальные данные и получить график прогноза.<p>
+    <form method="post">
+        <button type="submit" name="button1">Построить график прогноза по ARIMA</button>
+        <button type="submit" name="button2">Построить график прогноза по GradBoostDT</button>
+    </form>
+    {% if graph1 %}
+        <img src="/static/arima.png" alt="Predictions Graph">
+    {% endif %}
+    {% if graph2 %}
+        <img src="/static/gbdt.png" alt="Predictions Graph">
+    {% endif %}
+</body>
+</html>
+
