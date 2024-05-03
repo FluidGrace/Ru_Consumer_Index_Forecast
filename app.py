@@ -1,13 +1,14 @@
 from flask import Flask, request, render_template
 import pandas as pd
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import download
 import xltocsv
 import pickle
-import threading
 
-app = Flask(__name__, template_folder='/templates')
+app = Flask(__name__)
 months = ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек']
 
 def download():
@@ -31,6 +32,7 @@ def download():
     return data, x
 
 def arima():
+    plt.close()
     data, x = download()
     with open('sarima-(1,1,1)-(1,0,1,12).pkl','rb') as z:
         sarima = pickle.load(z)
@@ -47,7 +49,8 @@ def arima():
     plt.title('Прогноз ИПЦ России')
     plt.savefig('static/arima.png') # строим график прогноза
 
-def gbdt():    
+def gbdt(): 
+    plt.close()   
     data, x = download()
     data_low = data.copy()
     data_high = data.copy()
@@ -112,14 +115,10 @@ def gbdt():
 def index():
     if request.method == 'POST':
         if 'button1' in request.form:
-            thread = threading.Thread(target=arima)
-            thread.start()
-            thread.join()
+            arima()
             return render_template('index.html', graph1=True)
         elif 'button2' in request.form:
-            thread = threading.Thread(target=gbdt)
-            thread.start()
-            thread.join()
+            gbdt()
             return render_template('index.html', graph2=True)
     return render_template('index.html')
 
