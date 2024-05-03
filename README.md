@@ -23,6 +23,12 @@ pip install openpyxl==3.1.2
 pip install matplotlib==3.8.4
 pip install Werkzeug==2.2.2
 ```
+app.py - Flask-приложение с веб-интерфейсом
+download.py - скрипт-загрузчик данных
+xltocsv.py - .xlsx -> .csv
+analyze.py - графики/тесты на исходных данных
+arima.py - модуль тренировки SARIMA моделей
+sarima_analyze.py - разбор избранной SARIMA модели (доверительные интервалы, plot_diagnostics)
 
 ### Вариант 2. 
 Позволяему Docker'у установить их.
